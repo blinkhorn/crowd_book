@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
+
+  namespace :admin do
+    root to: "venues#show"
+  end
+
   root to: 'users#index'
-  root to: 'venues#show'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users do
