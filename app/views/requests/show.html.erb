@@ -1,2 +1,5 @@
-<h1>Requests#show</h1>
-<p>Find me in app/views/requests/show.html.erb</p>
+<h2><%= @request.name %> <a href="/requests/<%= @request.id %>/edit">(edit)</a></h2>
+<h4>Genre: <%= @request.genre %></h4>
+<!-- Soundcloud embed
+facebook embed -->
+<h4>Votes: <%= @request.number_votes %></h4>
