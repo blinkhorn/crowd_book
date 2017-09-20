@@ -1,9 +1,9 @@
 <% flash.each do |type, message| %>
   <p><%= type %>: <%= message %></p>
 <% end %>
-<h1>Artist Requests <a href="/requests/new">(+)</a></h1>
+<h1>Artist Requests <a href="/users/<%= @user.id %>/requests/new">(+)</a></h1>
 <% @requests.each do |request| %>
-  <a href="/requests/<%= request.id %>">
+  <a href="/users/<%= @user.id %>/requests/<%= request.id %>">
     <%= request.name %>
   </a>
 <% end %>

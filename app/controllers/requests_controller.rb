@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   def index
     @requests = Request.all
+    @user = User.find(params[:user_id])
   end
 
   def show
@@ -9,6 +10,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -19,6 +21,7 @@ class RequestsController < ApplicationController
 
   def edit
     @request = Request.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update
