@@ -11,6 +11,7 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
     @venue.update(venue_params)
+    flash[:notice] = "Venue was updated."
     redirect_to "/venues/#{@venue.id}"
   end
 

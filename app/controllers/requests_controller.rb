@@ -13,6 +13,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.create!(request_params)
+    flash[:notice] = "Request was created."
     redirect_to "/requests"
   end
 
@@ -23,12 +24,14 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
     @request.update(request_params)
+    flash[:notice] = "Request was updated."
     redirect_to "/requests/#{@request.id}"
   end
 
   def destroy
     @request = Request.find(params[:id])
     @request.destroy
+    flash[:notice] = "Request was deleted."
     redirect_to "/requests"
   end
 
