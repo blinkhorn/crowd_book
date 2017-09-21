@@ -17,3 +17,6 @@ Ruby on rails, psql, heroku, css, html.
 
 ##Use the program
 Visit the app [here](https://crowd-book.herokuapp.com/)
+
+##Improvements
+I will add several features: ability to see tally of similar requests on venues; have the ability for there to be multiple venues; have Soundcloud embeds; style the application so it looks good; improve ability to navigate across application + improve user experience generally speaking; add interactions with JavaScript.
