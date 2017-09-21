@@ -15,18 +15,22 @@ class RequestsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
+    @venue = Venue.find(params[:request][:venue_id])
     @user.requests.create!(request_params)
     flash[:notice] = "Request was created."
     redirect_to "/users/#{@user.id}/requests"
   end
 
   def edit
-    @request = Request.find(params[:id])
     @user = User.find(params[:user_id])
+
+    @venue = Venue.find(params[:request][:venue_id])
+    @request = Request.find(params[:id])
   end
 
   def update
     @user = User.find(params[:user_id])
+    @venue = Venue.find(params[:request][:venue_id])
     @request = Request.find(params[:id])
     @request.update(request_params)
     flash[:notice] = "Request was updated."
@@ -35,6 +39,7 @@ class RequestsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
+    @venue = Venue.find(params[:venue_id])
     @request = Request.find(params[:id])
     @request.destroy
     flash[:notice] = "Request was deleted."
@@ -43,6 +48,6 @@ class RequestsController < ApplicationController
 
   private
   def request_params
-    params.require(:request).permit(:name, :genre, :soundcloud, :facebook, :number_votes)
+    params.require(:request).permit(:name, :genre, :soundcloud, :facebook, :number_votes, :venue_id)
   end
 end

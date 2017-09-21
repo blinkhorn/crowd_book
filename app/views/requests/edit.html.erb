@@ -1,6 +1,6 @@
 <h2>Edit <%= @request.name %> </h2>
 
-<%= form_for @request, url: "/requests/#{@request.id}", method: :put do |f| %>
+<%= form_for [@user, @venue, @request] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -12,6 +12,9 @@
 
   <%= f.label :facebook %>
   <%= f.text_field :facebook %>
+
+  <%= f.label :venue %>
+  <%= f.collection_select(:venue_id, Venue.all, :id, :name, prompt: true) %>
 
   <%= f.submit "Edit" %>
 <% end %>

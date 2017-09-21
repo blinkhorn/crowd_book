@@ -4,6 +4,10 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
   end
 
+  def create
+    @venue = Venue.create!(venue_params)
+  end
+
   def edit
     @venue = Venue.find(params[:id])
   end
