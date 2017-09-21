@@ -21,3 +21,9 @@
 
  .alert  { color: red;  }
  .notice { color: blue; }
+
+ html, body {
+   margin: 0;
+   height: 100%;
+   text-align: center;
+ }

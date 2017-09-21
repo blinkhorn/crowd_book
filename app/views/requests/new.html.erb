@@ -1,5 +1,5 @@
 <h2>New Request</h2>
-<%= form_for @request do |f| %>
+<%= form_for [@user, @request] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
