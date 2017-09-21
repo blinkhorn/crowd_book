@@ -6,6 +6,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :soundcloud
       t.string :facebook
       t.integer :number_votes
+      t.references :user, null: false, index:true
       t.timestamps
     end
   end

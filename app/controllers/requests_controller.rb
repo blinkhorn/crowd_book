@@ -14,9 +14,10 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.create!(request_params)
+    @user = User.find(params[:user_id])
+    @user.requests.create!(request_params)
     flash[:notice] = "Request was created."
-    redirect_to "/requests"
+    redirect_to "/users/#{@user.id}/requests"
   end
 
   def edit
@@ -25,17 +26,19 @@ class RequestsController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:user_id])
     @request = Request.find(params[:id])
     @request.update(request_params)
     flash[:notice] = "Request was updated."
-    redirect_to "/requests/#{@request.id}"
+    redirect_to "/users/#{@user.id}/requests/#{@request.id}"
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     @request = Request.find(params[:id])
     @request.destroy
     flash[:notice] = "Request was deleted."
-    redirect_to "/requests"
+    redirect_to "/users/#{@user.id}/requests"
   end
 
   private
