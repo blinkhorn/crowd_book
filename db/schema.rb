@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20170915195427) do
     t.string "genre"
     t.string "soundcloud"
     t.string "facebook"
-    t.integer "number_votes"
     t.bigint "user_id", null: false
     t.bigint "venue_id", null: false
     t.datetime "created_at", null: false
@@ -34,14 +33,20 @@ ActiveRecord::Schema.define(version: 20170915195427) do
     t.string "name"
     t.string "password_digest"
     t.string "email"
+    t.bigint "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["venue_id"], name: "index_users_on_venue_id"
   end
 
   create_table "venues", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id", null: false
+    t.bigint "request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_venues_on_request_id"
+    t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
 end
