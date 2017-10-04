@@ -1,3 +1,4 @@
+<!-- You could also put this in the application layout in case you need to display flash messages for requests that involve moving from one controller to the other. It's working fine in your application as is, but you may want to consider this as your application changes -->
 <% flash.each do |type, message| %>
    <p class="<%=type%>"><%= type %>: <%= message %></p>
 <% end %>

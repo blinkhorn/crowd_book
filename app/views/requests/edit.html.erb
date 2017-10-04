@@ -14,6 +14,7 @@
   <%= f.text_field :facebook %>
 
   <%= f.label :venue %>
+  <!-- Could also have an instance variable @venues = Venue.all, and use it here -->
   <%= f.collection_select(:venue_id, Venue.all, :id, :name, prompt: true) %>
 
   <%= f.submit "Edit" %>
