@@ -1,4 +1,11 @@
 class RequestsController < ApplicationController
+  # Since you're setting the user here repeatedly in many of these controller method, you can use before_action to
+  # DRY up your code a little bit. before_action takes a method_name as a :symbol for an argument
+  # then that mehtod runs before any controller action. You can also have this method run only or except for certain
+  # controller methods. Documentation link below.
+
+  # Check out section 8 Filter on http://guides.rubyonrails.org/action_controller_overview.html
+
   def index
     @requests = Request.all
     @user = User.find(params[:user_id])
